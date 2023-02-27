@@ -5,6 +5,12 @@
 
 $gray-medium-light: #eaeaea;
 
+@mixin bix-sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+   box-sizing:         border-box;
+}
+
 /* universal */
 body {
   padding-top: 60px;
@@ -67,22 +73,38 @@ footer {
 
   a {
     color: $gray;
+
     &:hover {
       color: $gray-darker;
     }
   }
+
   small {
     float: left;
   }
+
   ul {
     float: right;
     list-style: none;
+
     li {
       float: left;
       margin-left: 15px;
     }
   }
 }
+
+  /* miscellaneous */
+  .debug_dump{
+  clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 45px;
+    @include bix-sizing;
+  }
+
+
+
 
 
 
