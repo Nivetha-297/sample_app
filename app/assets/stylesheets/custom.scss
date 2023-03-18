@@ -10,6 +10,15 @@ $gray-medium-light: #eaeaea;
   -webkit-box-sizing: border-box;
    box-sizing:         border-box;
 }
+/* miscellaneous */
+.debug_dump{
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box-sizing;
+}
+
 
 /* universal */
 body {
@@ -26,6 +35,7 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+
 }
 /* typography */
 h1, h2, h3, h4, h5, h6 {
@@ -94,14 +104,7 @@ footer {
   }
 }
 
-  /* miscellaneous */
-  .debug_dump{
-  clear: both;
-    float: left;
-    width: 100%;
-    margin-top: 45px;
-    @include box-sizing;
-  }
+
 /* sidebar */
 aside {
   section.user_info {
