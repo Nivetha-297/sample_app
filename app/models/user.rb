@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   validates :name, presence: true, length: { maximum: 50 }
   before_save :downcase_email
@@ -66,13 +67,19 @@ class User < ApplicationRecord
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 
-  # sends password reset email
+  # sends password reset email.
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end
   # Returns true if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # defines a proto-feed.
+  # see "Following users" for the full implementation.
+  def feed
+    Micropost.where("user_id = ?", id)
   end
   private
   # Converts email to all lower-case.
